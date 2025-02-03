@@ -1,4 +1,5 @@
 .idea
 .DS_Store
-.history
-.vscode
+.history/
+.vscode/
+originals/

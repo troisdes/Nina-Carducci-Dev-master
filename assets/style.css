@@ -100,6 +100,9 @@ body {
 
 .picture img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 #about-me {
   flex: 2;
@@ -161,6 +164,7 @@ body {
   height: 100%;
   object-fit: cover;
   padding: 0.5em;
+  aspect-ratio: 1/1;
 }
 .mg-prev,
 .mg-next {
@@ -303,6 +307,14 @@ input[type="submit"] {
 .spectral-font {
   font-family: "Spectral";
   font-style: italic;
+}
+
+/* Correction carousel */
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920/888;
+  object-fit: cover;
 }
 
 @media all and (max-width: 1180px) {

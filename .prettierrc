@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": ["*.min.js", "*.min.css"],
+      "options": {
+        "parser": "none"
+      }
+    }
+  ]
+}

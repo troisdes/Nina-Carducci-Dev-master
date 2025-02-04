@@ -1,3 +1,20 @@
+:root {
+  --mobile: 650px;
+  --tablet: 1000px;
+  --desktop: 1180px;
+  --primary-color: #beb45a;
+  --secondary-color: #a8d5d8;
+  --accent-color: #e5975f;
+  --text-color: #000;
+  --bg-color: #fff;
+  --spacing-sm: 0.5em;
+  --spacing-md: 1em;
+  --spacing-lg: 2em;
+  --spacing-xl: 3em;
+  --text-width-narrow: 60%;
+  --text-width-wide: 80%;
+}
+
 body {
   max-width: 1920px;
   margin: auto;
@@ -72,6 +89,15 @@ body {
   z-index: 0;
 }
 
+.picture {
+  &.left::before,
+  &.right::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+}
+
 .picture img {
   width: 100%;
 }
@@ -83,15 +109,16 @@ body {
   margin-bottom: 60px;
   font-size: 30px;
 }
-.about-me__introduction {
+.text-block--special {
   font-family: "Spectral";
   font-weight: 800;
   font-style: italic;
-  width: 60%;
+  width: var(--text-width-narrow);
 }
-#about-me p {
-  width: 80%;
+.text-block {
+  margin: 1em auto;
   font-size: 14px;
+  width: var(--text-width-wide);
 }
 
 /* #gallery {
@@ -112,7 +139,11 @@ body {
   border-radius: 0;
 }
 .nav-pills .nav-link {
-  color: #000;
+  color: var(--text-color);
+}
+.nav-pills .nav-link.active-tag {
+  color: var(--bg-color);
+  background-color: var(--primary-color);
 }
 .item-column {
   position: relative;
@@ -168,11 +199,13 @@ body {
   width: 70%;
   margin: auto;
   padding-block: 3em;
+  font-size: 30px; /* Ajout de la taille de police */
 }
 .quote__text {
   font-family: Spectral;
   font-style: italic;
   font-weight: 300;
+  font-size: inherit; /* Hérite de la taille du parent */
 }
 .quote__author {
   font-family: Spectral;
@@ -265,6 +298,11 @@ form textarea {
 input[type="submit"] {
   background-color: #beb45a;
   padding: 0.5em 1em;
+}
+
+.spectral-font {
+  font-family: "Spectral";
+  font-style: italic;
 }
 
 @media all and (max-width: 1180px) {

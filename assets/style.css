@@ -309,12 +309,12 @@ input[type="submit"] {
   font-style: italic;
 }
 
-/* Correction carousel */
 .carousel-item img {
+  content-visibility: auto;
+  contain: paint;
   width: 100%;
   height: auto;
   aspect-ratio: 1920/888;
-  object-fit: cover;
 }
 
 @media all and (max-width: 1180px) {

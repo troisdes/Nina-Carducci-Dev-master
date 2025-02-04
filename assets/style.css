@@ -47,6 +47,10 @@
   --spacing-xl: 3em;
   --text-width-narrow: 60%;
   --text-width-wide: 80%;
+  --section-padding: 100px;
+  --form-element-spacing: 20px;
+  --primary-bg: #beb45a;
+  /* ...other variables... */
 }
 
 body {
@@ -165,6 +169,12 @@ body {
   justify-content: center;
 }
 
+.modal-content,
+.modal-dialog {
+  justify-content: center;
+  display: flex;
+}
+
 .nav-pills .nav-link.active-tag,
 .nav-pills .show > .nav-link {
   color: #fff;
@@ -181,6 +191,13 @@ body {
   background-color: var(--primary-color);
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bg-color);
+  background-color: var(--primary-color);
+  border-radius: 0;
+}
+
 .item-column {
   margin-bottom: 0 !important;
   padding: 0;
@@ -193,6 +210,8 @@ body {
 }
 
 .gallery-item {
+  aspect-ratio: 1/1;
+  object-fit: cover;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -200,8 +219,6 @@ body {
 }
 
 .modal-dialog {
-  display: flex;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   margin: auto;
@@ -210,10 +227,8 @@ body {
 }
 
 .modal-content {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background: none;
+  background: 0 0;
   border: none;
   width: auto;
 }
@@ -229,6 +244,7 @@ body {
 .modal-body {
   padding: 0;
 }
+
 .mg-next,
 .mg-prev {
   width: 30px;
@@ -240,31 +256,52 @@ body {
   font-size: 24px;
 }
 
-form input,
-form textarea {
-  background-color: transparent;
-  border: 1px solid;
-  margin-bottom: 20px;
-  width: 100%;
+.mg-next,
+.mg-prev {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1050;
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .mg-prev {
-  position: absolute;
-  left: -15px;
+  left: 5%;
 }
 
 .mg-next {
-  position: absolute;
-  right: -15px;
+  right: 5%;
+}
+
+/* Combine repeated element styles */
+form input,
+form textarea {
+  width: 100%;
+  background-color: transparent;
+  border: solid 1px;
+  margin-bottom: var(--form-element-spacing);
 }
 
 .gallery-nav-span {
   display: none;
 }
 
-#contact .container,
-.service,
-form {
+#contact {
+  margin: auto;
+  background-color: #d8d3a8;
+  position: relative;
+  padding-inline: 100px;
+  padding-block: 100px;
+}
+
+#contact .contact-container {
+  display: flex;
+}
+
+#contact .container {
   display: flex;
 }
 
@@ -289,6 +326,7 @@ form {
 #services {
   margin: auto;
   background-color: #a8d5d8;
+  position: relative;
 }
 
 #services .container::before {
@@ -309,10 +347,12 @@ form {
 }
 
 .service {
+  background-color: #fff;
   max-width: 390px;
   width: 30%;
   height: 337px;
   padding: 1em;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
@@ -358,6 +398,11 @@ input[type="submit"] {
 }
 
 @media all and (max-width: 1180px) {
+  /* Combine shared properties */
+  #about,
+  #contact .container {
+    align-items: center;
+  }
   .picture {
     flex: 2;
   }
@@ -375,6 +420,20 @@ input[type="submit"] {
   #about-me p {
     width: 100%;
   }
+
+  #contact .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    max-width: 90%;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+  }
 }
 
 @media all and (max-width: 1000px) {
@@ -387,7 +446,7 @@ input[type="submit"] {
   }
 
   #about,
-  #contact .container,
+  #contact .contact-container,
   #services .container {
     flex-direction: column;
   }
@@ -429,11 +488,16 @@ input[type="submit"] {
 
   #contact .picture.right {
     margin-top: 1em;
+    width: 50%;
   }
 
-  .picture.right::before {
-    bottom: 0;
-    right: 0;
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  form {
+    width: 100%;
   }
 }
 
@@ -472,6 +536,14 @@ input[type="submit"] {
   #contact {
     padding-inline: 2em;
     padding-block: 2em;
+  }
+
+  #contact .picture.right {
+    width: 80%;
+  }
+
+  .picture.right::before {
+    height: 150px;
   }
 
   form {

@@ -398,8 +398,7 @@ input[type="submit"] {
 
 .carousel-item img {
   width: 100%;
-  height: 888px;
-  aspect-ratio: 1920/888;
+  height: auto;
   object-fit: cover;
 }
 
@@ -456,7 +455,7 @@ input[type="submit"] {
   }
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 800px) {
   .picture.left::before,
   .picture.right::before {
     height: 30%;
@@ -521,7 +520,7 @@ input[type="submit"] {
   }
 }
 
-@media all and (max-width: 650px) {
+@media all and (max-width: 400px) {
   .top-header {
     flex-direction: column;
     padding-inline: 0;

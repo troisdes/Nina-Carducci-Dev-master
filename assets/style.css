@@ -1,22 +1,22 @@
-/* Add to your @font-face declarations */
-@font-face {
-  font-family: "Spectral";
-  font-display: swap;
-  /* other font properties */
+form input,
+form textarea {
+  margin-bottom: var(--form-element-spacing);
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Spectral;
   font-display: swap;
-  /* other font properties */
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
 }
 
 .gallery-item,
 .picture img {
   aspect-ratio: 1/1;
   object-fit: cover;
-  width: 100%;
-  height: 100%; /* Fixed height instead of auto */
 }
 
 #about,
@@ -235,7 +235,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  min-height: 200px; /* Add minimum height */
+  min-height: 200px;
   padding: 0.5em;
 }
 
@@ -299,17 +299,6 @@ form textarea {
   width: 100%;
   background-color: transparent;
   border: 1px solid;
-  margin-bottom: var(--form-element-spacing);
-}
-
-form input {
-  height: 2.5em;
-  margin-bottom: var(--form-element-spacing);
-}
-
-form textarea {
-  height: 5em;
-  min-height: 100px;
 }
 
 .gallery-nav-span {
@@ -367,13 +356,17 @@ form textarea {
   padding: 2em 0;
 }
 
+.service,
+form {
+  flex-direction: column;
+}
+
 .service {
   background-color: #fff;
   max-width: 390px;
   width: 30%;
   height: 337px;
   padding: 1em;
-  flex-direction: column;
   justify-content: space-between;
   z-index: 1;
 }
@@ -385,14 +378,12 @@ form textarea {
 }
 
 form {
-  flex-direction: column;
   width: 70%;
   align-items: flex-start;
 }
 
 form input {
   height: 2.5em;
-  margin-bottom: var(--form-element-spacing);
 }
 
 form textarea {
@@ -407,23 +398,21 @@ input[type="submit"] {
 
 .carousel-item img {
   width: 100%;
-  height: 888px; /* Fixed height instead of auto */
+  height: 888px;
   aspect-ratio: 1920/888;
   object-fit: cover;
 }
 
-/* Add to sections that are not immediately visible */
-#services,
-#contact {
+#contact,
+#services {
   content-visibility: auto;
-  contain-intrinsic-size: 1px 500px; /* Estimate of section height */
+  contain-intrinsic-size: 1px 500px;
 }
 
 #form-photo img {
   width: 100%;
   height: 100%;
-  /* object-fit: cover; */
-  max-width: none; /* Remove any max-width restrictions */
+  max-width: none;
 }
 
 .form-container {

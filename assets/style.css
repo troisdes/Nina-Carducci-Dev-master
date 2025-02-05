@@ -1,18 +1,33 @@
+/* Add to your @font-face declarations */
+@font-face {
+  font-family: "Spectral";
+  font-display: swap;
+  /* other font properties */
+}
+
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
+  /* other font properties */
+}
+
 .gallery-item,
 .picture img {
   aspect-ratio: 1/1;
   object-fit: cover;
-}
-
-.service,
-.top-header {
-  background-color: #fff;
+  width: 100%;
+  height: 100%; /* Fixed height instead of auto */
 }
 
 #about,
 #contact {
   padding-inline: 100px;
   padding-block: 100px;
+}
+
+.service,
+.top-header {
+  background-color: #fff;
 }
 
 .picture.left::before,
@@ -50,7 +65,6 @@
   --section-padding: 100px;
   --form-element-spacing: 20px;
   --primary-bg: #beb45a;
-  /* ...other variables... */
 }
 
 body {
@@ -87,8 +101,6 @@ body {
 
 .mg-next,
 .mg-prev {
-  cursor: pointer;
-  top: 50%;
   background: #fff;
 }
 
@@ -131,11 +143,21 @@ body {
   flex: 1;
   margin: 0 20px;
   z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture picture {
+  width: 100%;
+  height: 100%;
 }
 
 .picture img {
   width: 100%;
   height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 #about-me,
@@ -182,19 +204,19 @@ body {
   border-radius: 0;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.active-tag,
+.nav-pills .show > .nav-link {
+  color: var(--bg-color);
+  background-color: var(--primary-color);
+}
+
 .nav-pills .nav-link {
   color: var(--text-color);
 }
 
-.nav-pills .nav-link.active-tag {
-  color: var(--bg-color);
-  background-color: var(--primary-color);
-}
-
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: var(--bg-color);
-  background-color: var(--primary-color);
   border-radius: 0;
 }
 
@@ -210,20 +232,20 @@ body {
 }
 
 .gallery-item {
-  aspect-ratio: 1/1;
-  object-fit: cover;
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 200px; /* Add minimum height */
   padding: 0.5em;
 }
 
 .modal-dialog {
   align-items: center;
   height: 100vh;
+  width: 95vw;
+  max-width: 95vw;
   margin: auto;
   padding: 2rem;
-  max-width: 95vw;
 }
 
 .modal-content {
@@ -239,6 +261,8 @@ body {
   object-fit: contain;
   margin: auto;
   display: block;
+  width: auto;
+  height: auto;
 }
 
 .modal-body {
@@ -247,17 +271,11 @@ body {
 
 .mg-next,
 .mg-prev {
-  width: 30px;
-  height: 30px;
   border-radius: 25%;
   justify-content: center;
   align-items: center;
   display: flex;
   font-size: 24px;
-}
-
-.mg-next,
-.mg-prev {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -276,33 +294,37 @@ body {
   right: 5%;
 }
 
-/* Combine repeated element styles */
 form input,
 form textarea {
   width: 100%;
   background-color: transparent;
-  border: solid 1px;
+  border: 1px solid;
   margin-bottom: var(--form-element-spacing);
+}
+
+form input {
+  height: 2.5em;
+  margin-bottom: var(--form-element-spacing);
+}
+
+form textarea {
+  height: 5em;
+  min-height: 100px;
 }
 
 .gallery-nav-span {
   display: none;
 }
 
+#contact .contact-container,
+#contact .container,
+.service {
+  display: flex;
+}
+
 #contact {
   margin: auto;
   background-color: #d8d3a8;
-  position: relative;
-  padding-inline: 100px;
-  padding-block: 100px;
-}
-
-#contact .contact-container {
-  display: flex;
-}
-
-#contact .container {
-  display: flex;
 }
 
 .quote {
@@ -326,7 +348,6 @@ form textarea {
 #services {
   margin: auto;
   background-color: #a8d5d8;
-  position: relative;
 }
 
 #services .container::before {
@@ -352,15 +373,9 @@ form textarea {
   width: 30%;
   height: 337px;
   padding: 1em;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
-}
-
-#contact {
-  margin: auto;
-  background-color: #d8d3a8;
 }
 
 .picture.right::before {
@@ -377,12 +392,12 @@ form {
 
 form input {
   height: 2.5em;
+  margin-bottom: var(--form-element-spacing);
 }
 
 form textarea {
   height: 5em;
-  line-height: 2.5em;
-  font-size: 1.2em;
+  min-height: 100px;
 }
 
 input[type="submit"] {
@@ -392,17 +407,33 @@ input[type="submit"] {
 
 .carousel-item img {
   width: 100%;
-  height: auto;
+  height: 888px; /* Fixed height instead of auto */
   aspect-ratio: 1920/888;
   object-fit: cover;
 }
 
+/* Add to sections that are not immediately visible */
+#services,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px; /* Estimate of section height */
+}
+
+#form-photo img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  max-width: none; /* Remove any max-width restrictions */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 @media all and (max-width: 1180px) {
-  /* Combine shared properties */
-  #about,
-  #contact .container {
-    align-items: center;
-  }
   .picture {
     flex: 2;
   }
@@ -455,6 +486,11 @@ input[type="submit"] {
     width: 50%;
   }
 
+  .service,
+  form {
+    width: 100%;
+  }
+
   .picture.left::before {
     bottom: auto;
     top: 0;
@@ -467,7 +503,6 @@ input[type="submit"] {
   }
 
   .service {
-    width: 100%;
     max-width: 100%;
     height: auto;
     margin: 2em 0;
@@ -494,10 +529,6 @@ input[type="submit"] {
   .form-container {
     width: 100%;
     max-width: 600px;
-  }
-
-  form {
-    width: 100%;
   }
 }
 
@@ -538,19 +569,12 @@ input[type="submit"] {
     padding-block: 2em;
   }
 
-  #contact .picture.right {
+  #contact .picture.right,
+  .picture {
     width: 80%;
-  }
-
-  .picture.right::before {
-    height: 150px;
   }
 
   form {
     width: 100%;
-  }
-
-  .picture {
-    width: 80%;
   }
 }

@@ -1,3 +1,16 @@
+/* Add to your @font-face declarations */
+@font-face {
+    font-family: 'Spectral';
+    font-display: swap;
+    /* other font properties */
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    /* other font properties */
+}
+
 .gallery-item,
 .picture img {
     aspect-ratio: 1/1;
@@ -134,7 +147,8 @@ body {
 
 .picture img {
     width: 100%;
-    height: 100%; /* Fixed height instead of auto */
+    aspect-ratio: 1/1;
+    object-fit: contain;
 }
 
 #about-me,
@@ -212,15 +226,17 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    min-height: 200px; /* Add minimum height */
     padding: .5em
 }
 
 .modal-dialog {
     align-items: center;
     height: 100vh;
+    width: 95vw;
+    max-width: 95vw;
     margin: auto;
     padding: 2rem;
-    max-width: 95vw
 }
 
 .modal-content {
@@ -235,7 +251,9 @@ body {
     max-height: 90vh;
     object-fit: contain;
     margin: auto;
-    display: block
+    display: block;
+    width: auto;
+    height: auto;
 }
 
 .modal-body {
@@ -273,6 +291,16 @@ form textarea {
     background-color: transparent;
     border: 1px solid;
     margin-bottom: var(--form-element-spacing)
+}
+
+form input {
+    height: 2.5em;
+    margin-bottom: var(--form-element-spacing);
+}
+
+form textarea {
+    height: 5em;
+    min-height: 100px;
 }
 
 .gallery-nav-span {
@@ -354,13 +382,13 @@ form {
 }
 
 form input {
-    height: 2.5em
+    height: 2.5em;
+    margin-bottom: var(--form-element-spacing);
 }
 
 form textarea {
     height: 5em;
-    line-height: 2.5em;
-    font-size: 1.2em
+    min-height: 100px;
 }
 
 input[type=submit] {
@@ -373,6 +401,26 @@ input[type=submit] {
     height: 888px; /* Fixed height instead of auto */
     aspect-ratio: 1920/888;
     object-fit: cover;
+}
+
+/* Add to sections that are not immediately visible */
+#services, #contact {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px; /* Estimate of section height */
+}
+
+#form-photo img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    max-width: none; /* Remove any max-width restrictions */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 @media all and (max-width:1180px) {

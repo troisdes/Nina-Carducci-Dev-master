@@ -4,30 +4,25 @@ form textarea {
   margin-bottom: var(--form-element-spacing);
 }
 
-/* Définition de la police Spectral */
+/* Définition des polices */
 @font-face {
-  font-family: "Spectral";
+  font-family: Spectral;
   font-display: swap;
-  src: url("../fonts/Spectral-Regular.woff2") format("woff2"),
-    url("../fonts/Spectral-Regular.woff") format("woff");
 }
 
-/* Définition de la police Inter */
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Regular.woff2") format("woff2"),
-    url("../fonts/Inter-Regular.woff") format("woff");
 }
 
-/* Styles pour les éléments de la galerie */
+/* Styles pour les éléments de la galerie et les images */
 .gallery-item,
 .picture img {
   aspect-ratio: 1/1;
   object-fit: cover;
 }
 
-/* Styles pour les sections about et contact */
+/* Styles pour les sections "about" et "contact" */
 #about,
 #contact {
   padding-inline: 100px;
@@ -40,7 +35,7 @@ form textarea {
   background-color: #fff;
 }
 
-/* Styles pour les images avec pseudo-éléments avant */
+/* Styles pour les éléments avec des images à gauche et à droite */
 .picture.left::before,
 .picture.right::before {
   content: " ";
@@ -86,7 +81,7 @@ body {
   margin: auto;
 }
 
-/* Styles globaux */
+/* Styles généraux */
 * {
   font-family: Inter;
   font-style: normal;
@@ -109,7 +104,7 @@ body {
   align-items: center;
 }
 
-/* Styles pour les sections about, contact, services et les colonnes d'éléments */
+/* Styles pour les sections avec position relative */
 #about,
 #contact,
 #services,
@@ -150,7 +145,7 @@ body {
   width: 20px;
 }
 
-/* Styles pour la section about */
+/* Styles pour la section "about" */
 #about {
   display: flex;
   background-color: #f6d2b8;
@@ -184,7 +179,7 @@ body {
   object-fit: cover;
 }
 
-/* Styles pour les sections about-me et form-container */
+/* Styles pour la section "about-me" et le formulaire */
 #about-me,
 .form-container {
   flex: 2;
@@ -214,7 +209,7 @@ body {
   padding-block: 2em;
 }
 
-/* Styles pour la navigation de la galerie */
+/* Styles pour la galerie */
 .gallery .nav {
   justify-content: center;
 }
@@ -335,12 +330,12 @@ form textarea {
   border: 1px solid;
 }
 
-/* Styles pour les éléments de navigation de la galerie */
+/* Styles pour les éléments cachés de la galerie */
 .gallery-nav-span {
   display: none;
 }
 
-/* Styles pour la section contact */
+/* Styles pour la section "contact" */
 #contact .contact-container,
 #contact .container,
 .service {
@@ -371,7 +366,7 @@ form textarea {
   font-size: 22px;
 }
 
-/* Styles pour la section services */
+/* Styles pour la section "services" */
 #services {
   margin: auto;
   background-color: #a8d5d8;
@@ -436,14 +431,14 @@ input[type="submit"] {
   padding: 0.5em 1em;
 }
 
-/* Styles pour les éléments du carrousel */
+/* Styles pour les éléments du carousel */
 .carousel-item img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Styles pour les sections contact et services */
+/* Styles pour les sections "contact" et "services" */
 #contact,
 #services {
   content-visibility: auto;
@@ -457,7 +452,7 @@ input[type="submit"] {
   max-width: none;
 }
 
-/* Styles pour le conteneur de formulaire */
+/* Styles pour le conteneur du formulaire */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -465,7 +460,7 @@ input[type="submit"] {
   gap: 20px;
 }
 
-/* Styles pour les écrans de taille maximale 1180px */
+/* Styles pour les écrans de taille moyenne */
 @media all and (max-width: 1180px) {
   .picture {
     flex: 2;
@@ -500,7 +495,7 @@ input[type="submit"] {
   }
 }
 
-/* Styles pour les écrans de taille maximale 800px */
+/* Styles pour les écrans de petite taille */
 @media all and (max-width: 800px) {
   .picture.left::before,
   .picture.right::before {
@@ -566,7 +561,7 @@ input[type="submit"] {
   }
 }
 
-/* Styles pour les écrans de taille maximale 400px */
+/* Styles pour les écrans très petits */
 @media all and (max-width: 400px) {
   .top-header {
     flex-direction: column;

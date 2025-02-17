@@ -1,25 +1,27 @@
 /* Styles pour les éléments de formulaire */
 form input,
 form textarea {
-  margin-bottom: var(--form-element-spacing);
+  margin-bottom: var(
+    --form-element-spacing
+  ); /* Ajout de l'espacement entre les éléments de formulaire */
 }
 
 /* Définition des polices */
 @font-face {
   font-family: Spectral;
-  font-display: swap;
+  font-display: swap; /* Ajout de la propriété font-display pour améliorer les performances */
 }
 
 @font-face {
   font-family: Inter;
-  font-display: swap;
+  font-display: swap; /* Ajout de la propriété font-display pour améliorer les performances */
 }
 
 /* Styles pour les éléments de la galerie et les images */
 .gallery-item,
 .picture img {
-  aspect-ratio: 1/1;
-  object-fit: cover;
+  aspect-ratio: 1/1; /* Ajout de l'aspect ratio pour les images */
+  object-fit: cover; /* Ajout de l'ajustement des images pour couvrir l'espace */
 }
 
 /* Styles pour les sections "about" et "contact" */
@@ -32,7 +34,7 @@ form textarea {
 /* Styles pour les services et l'en-tête */
 .service,
 .top-header {
-  background-color: #fff;
+  background-color: #fff; /* Utilisation de la variable de couleur de fond */
 }
 
 /* Styles pour les éléments avec des images à gauche et à droite */
@@ -89,7 +91,7 @@ body {
 
 /* Classe pour cacher les éléments */
 .hidden {
-  visibility: hidden;
+  visibility: hidden; /* Ajout de la classe pour cacher les éléments */
 }
 
 /* Styles pour l'en-tête */
@@ -115,7 +117,7 @@ body {
 /* Styles pour les boutons de navigation de la galerie */
 .mg-next,
 .mg-prev {
-  background: #fff;
+  background: #fff; /* Ajout de la couleur de fond pour les boutons de navigation */
 }
 
 /* Styles pour le nom dans l'en-tête */
@@ -299,7 +301,7 @@ body {
 /* Styles pour les boutons de navigation de la galerie */
 .mg-next,
 .mg-prev {
-  border-radius: 25%;
+  border-radius: 25%; /* Modification du rayon de bordure pour les boutons de navigation */
   justify-content: center;
   align-items: center;
   display: flex;
@@ -441,8 +443,8 @@ input[type="submit"] {
 /* Styles pour les sections "contact" et "services" */
 #contact,
 #services {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 500px;
+  content-visibility: auto; /* Ajout de la visibilité du contenu pour améliorer les performances */
+  contain-intrinsic-size: 1px 500px; /* Ajout de la taille intrinsèque pour améliorer les performances */
 }
 
 /* Styles pour les images du formulaire */
@@ -457,7 +459,7 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 20px; /* Ajout de l'espacement entre les éléments du formulaire */
 }
 
 /* Styles pour les écrans de taille moyenne */

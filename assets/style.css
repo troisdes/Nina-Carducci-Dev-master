@@ -332,6 +332,16 @@ form textarea {
   border: 1px solid;
 }
 
+form textarea {
+  width: 100%;
+  background-color: transparent;
+  border: solid 1px;
+  height: 5em;
+  line-height: 2.5em;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
 /* Styles pour les éléments cachés de la galerie */
 .gallery-nav-span {
   display: none;
@@ -351,15 +361,20 @@ form textarea {
 
 /* Styles pour les citations */
 .quote {
+  font-family: "Spectral";
+  font-style: italic;
   width: 70%;
   margin: auto;
   padding-block: 3em;
-  font-size: 30px;
 }
 
 .quote__text {
+  font-family: Spectral;
+  font-style: italic;
   font-weight: 300;
-  font-size: inherit;
+  font-size: 2.5em; /* mimic the size of the old h1 */
+  line-height: 1.2;
+  margin: 0.5em 0;
 }
 
 .quote__author {
@@ -609,4 +624,61 @@ input[type="submit"] {
   form {
     width: 100%;
   }
+}
+
+/* Restaurer les styles de texte originaux */
+
+/* Style pour l'introduction */
+.about-me__introduction {
+  font-family: "Spectral";
+  font-weight: 800;
+  font-style: italic;
+  width: 60%;
+}
+
+/* Style pour les paragraphes dans about-me */
+#about-me p {
+  width: 80%;
+  font-size: 14px;
+}
+
+/* Style pour les citations */
+.quote {
+  font-family: "Spectral";
+  font-style: italic;
+  width: 70%;
+  margin: auto;
+  padding-block: 3em;
+}
+
+.quote__text {
+  font-family: Spectral;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.quote__author {
+  font-family: Spectral;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* Style pour la navigation */
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* Style pour le titre dans l'en-tête */
+.top-header .name {
+  font-size: 26px;
+}
+
+/* Style pour les titres de services */
+.about-me__title {
+  margin-top: 1em;
+  margin-bottom: 60px;
+  font-size: 30px;
 }

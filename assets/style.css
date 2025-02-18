@@ -475,7 +475,6 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px; /* Ajout de l'espacement entre les éléments du formulaire */
 }
 
 /* Styles pour les écrans de taille moyenne */

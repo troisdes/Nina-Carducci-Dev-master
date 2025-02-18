@@ -1,3 +1,4 @@
+# .prettierrc
 .idea/
 .DS_Store
 .history/
@@ -5,4 +6,9 @@
 originals/
 original-style.css
 roadmap.md
-# .prettierrc
+git_history_full.md
+index_history_stats.md
+index_history.md
+style_history.md
+maugallery_history.md
+scripts_history.md

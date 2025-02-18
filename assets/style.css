@@ -630,11 +630,14 @@ input[type="submit"] {
 /* Restaurer les styles de texte originaux */
 
 /* Style pour l'introduction */
-.about-me__introduction {
+#about-me__introduction {
+  display: block;
+  font-size: 1rem;
   font-family: "Spectral";
   font-weight: 800;
   font-style: italic;
-  width: 60%;
+  width: 80%;
+  line-height: 1.2;
 }
 
 /* Style pour les paragraphes dans about-me */

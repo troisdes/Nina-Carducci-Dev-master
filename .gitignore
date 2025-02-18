@@ -3,4 +3,6 @@
 .history/
 .vscode/
 originals/
+roadmap.md
+original-style.css
 # .prettierrc

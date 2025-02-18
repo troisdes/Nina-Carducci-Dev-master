@@ -1,8 +1,8 @@
-.idea
+.idea/
 .DS_Store
 .history/
 .vscode/
 originals/
-roadmap.md
 original-style.css
+roadmap.md
 # .prettierrc

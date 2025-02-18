@@ -1,3 +1,62 @@
+/* Styles pour les éléments de formulaire */
+form input,
+form textarea {
+  margin-bottom: var(
+    --form-element-spacing
+  ); /* Ajout de l'espacement entre les éléments de formulaire */
+}
+
+/* Définition des polices */
+@font-face {
+  font-family: Spectral;
+  font-display: swap; /* Ajout de la propriété font-display pour améliorer les performances */
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap; /* Ajout de la propriété font-display pour améliorer les performances */
+}
+
+/* Styles pour les éléments de la galerie et les images */
+.gallery-item,
+.picture img {
+  aspect-ratio: 1/1; /* Ajout de l'aspect ratio pour les images */
+  object-fit: cover; /* Ajout de l'ajustement des images pour couvrir l'espace */
+}
+
+/* Styles pour les sections "about" et "contact" */
+#about,
+#contact {
+  padding-inline: 100px;
+  padding-block: 100px;
+}
+
+/* Styles pour les services et l'en-tête */
+.service,
+.top-header {
+  background-color: #fff; /* Utilisation de la variable de couleur de fond */
+}
+
+/* Styles pour les éléments avec des images à gauche et à droite */
+.picture.left::before,
+.picture.right::before {
+  content: " ";
+  width: 374px;
+  height: 329px;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Styles pour les citations et les textes spéciaux */
+.quote,
+.quote__text,
+.spectral-font,
+.text-block--special {
+  font-family: Spectral;
+  font-style: italic;
+}
+
+/* Variables CSS */
 :root {
   --mobile: 650px;
   --tablet: 1000px;
@@ -13,23 +72,30 @@
   --spacing-xl: 3em;
   --text-width-narrow: 60%;
   --text-width-wide: 80%;
+  --section-padding: 100px;
+  --form-element-spacing: 20px;
+  --primary-bg: #beb45a;
 }
 
+/* Styles pour le corps de la page */
 body {
   max-width: 1920px;
   margin: auto;
 }
+
+/* Styles généraux */
 * {
-  font-family: "Inter";
+  font-family: Inter;
   font-style: normal;
 }
 
+/* Classe pour cacher les éléments */
 .hidden {
-  visibility: hidden;
+  visibility: hidden; /* Ajout de la classe pour cacher les éléments */
 }
 
+/* Styles pour l'en-tête */
 .top-header {
-  background-color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -40,10 +106,26 @@ body {
   align-items: center;
 }
 
+/* Styles pour les sections avec position relative */
+#about,
+#contact,
+#services,
+.item-column {
+  position: relative;
+}
+
+/* Styles pour les boutons de navigation de la galerie */
+.mg-next,
+.mg-prev {
+  background: #fff; /* Ajout de la couleur de fond pour les boutons de navigation */
+}
+
+/* Styles pour le nom dans l'en-tête */
 .top-header .name {
   font-size: 26px;
 }
 
+/* Styles pour la navigation */
 .nav ul {
   display: flex;
   list-style-type: none;
@@ -60,168 +142,258 @@ body {
   color: #000;
 }
 
+/* Styles pour les liens sociaux */
 .social-link img {
   width: 20px;
 }
 
+/* Styles pour la section "about" */
 #about {
   display: flex;
   background-color: #f6d2b8;
-  padding-inline: 100px;
-  padding-block: 100px;
-  position: relative;
 }
 
 .picture.left::before {
-  content: " ";
   background-color: #e5975f;
-  width: 374px;
-  height: 329px;
   position: absolute;
-  bottom: 0;
   left: 0;
-  z-index: -1;
 }
 
+/* Styles pour les images */
 .picture {
   flex: 1;
   margin: 0 20px;
   z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.picture {
-  &.left::before,
-  &.right::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-  }
+.picture picture {
+  width: 100%;
+  height: 100%;
 }
 
 .picture img {
   width: 100%;
   height: auto;
+<<<<<<< HEAD
   aspect-ratio: 1/1;
+=======
+  max-width: 100%;
+>>>>>>> fix-bug-gallery
   object-fit: cover;
 }
-#about-me {
+
+/* Styles pour la section "about-me" et le formulaire */
+#about-me,
+.form-container {
   flex: 2;
 }
+
 .about-me__title {
   margin-top: 1em;
   margin-bottom: 60px;
   font-size: 30px;
 }
+
+/* Styles pour les blocs de texte spéciaux */
 .text-block--special {
-  font-family: "Spectral";
   font-weight: 800;
-  font-style: italic;
   width: var(--text-width-narrow);
 }
+
 .text-block {
   margin: 1em auto;
   font-size: 14px;
   width: var(--text-width-wide);
 }
 
-/* #gallery {
-  min-height: 100vh;
-} */
-
+/* Styles pour les titres */
 .title {
   text-align: center;
   padding-block: 2em;
 }
+
+/* Styles pour la galerie */
 .gallery .nav {
   justify-content: center;
 }
+
+/* Styles pour les modales */
+.modal-content,
+.modal-dialog {
+  justify-content: center;
+  display: flex;
+}
+
 .nav-pills .nav-link.active-tag,
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #beb45a;
   border-radius: 0;
 }
-.nav-pills .nav-link {
-  color: var(--text-color);
-}
-.nav-pills .nav-link.active-tag {
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.active-tag,
+.nav-pills .show > .nav-link {
   color: var(--bg-color);
   background-color: var(--primary-color);
 }
+
+.nav-pills .nav-link {
+  color: var(--text-color);
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  border-radius: 0;
+}
+
+/* Styles pour les colonnes d'éléments */
 .item-column {
-  position: relative;
   margin-bottom: 0 !important;
   padding: 0;
 }
+
 .item-column::after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
+
+/* Styles pour les éléments de la galerie */
 .gallery-item {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  min-height: 200px;
   padding: 0.5em;
   aspect-ratio: 1/1;
 }
-.mg-prev,
-.mg-next {
-  width: 30px;
-  height: 30px;
-  border-radius: 00%;
+
+/* Styles pour les modales */
+.modal-dialog {
+  align-items: center;
+  height: 100vh;
+  width: 95vw;
+  max-width: 95vw;
+  margin: auto;
+  padding: 2rem;
+}
+
+.modal-content {
+  align-items: center;
+  background: 0 0;
+  border: none;
+  width: auto;
+}
+
+.modal-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+/* Styles pour les boutons de navigation de la galerie */
+.mg-next,
+.mg-prev {
+  border-radius: 25%; /* Modification du rayon de bordure pour les boutons de navigation */
   justify-content: center;
   align-items: center;
   display: flex;
   font-size: 24px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1050;
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .mg-prev {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: -15px;
-  background: white;
+  left: 5%;
 }
 
 .mg-next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: -15px;
-  background: white;
+  right: 5%;
 }
 
+/* Styles pour les éléments de formulaire */
+form input,
+form textarea {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid;
+}
+
+form textarea {
+  width: 100%;
+  background-color: transparent;
+  border: solid 1px;
+  height: 5em;
+  line-height: 2.5em;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Styles pour les éléments cachés de la galerie */
 .gallery-nav-span {
   display: none;
 }
 
+/* Styles pour la section "contact" */
+#contact .contact-container,
+#contact .container,
+.service {
+  display: flex;
+}
+
+#contact {
+  margin: auto;
+  background-color: #d8d3a8;
+}
+
+/* Styles pour les citations */
 .quote {
   font-family: "Spectral";
   font-style: italic;
   width: 70%;
   margin: auto;
   padding-block: 3em;
-  font-size: 30px; /* Ajout de la taille de police */
 }
+
 .quote__text {
   font-family: Spectral;
   font-style: italic;
   font-weight: 300;
-  font-size: inherit; /* Hérite de la taille du parent */
+  font-size: 2.5em; /* mimic the size of the old h1 */
+  line-height: 1.2;
+  margin: 0.5em 0;
 }
+
 .quote__author {
   font-family: Spectral;
   font-weight: 800;
   font-size: 22px;
 }
 
+/* Styles pour la section "services" */
 #services {
   margin: auto;
   background-color: #a8d5d8;
-  position: relative;
 }
+
 #services .container::before {
   content: " ";
   background-color: #1c6474;
@@ -239,76 +411,56 @@ body {
   padding: 2em 0;
 }
 
+/* Styles pour les services et les formulaires */
+.service,
+form {
+  flex-direction: column;
+}
+
 .service {
-  background-color: white;
+  background-color: #fff;
   max-width: 390px;
   width: 30%;
   height: 337px;
   padding: 1em;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   z-index: 1;
 }
 
-#contact {
-  margin: auto;
-  background-color: #d8d3a8;
-  position: relative;
-  padding-inline: 100px;
-  padding-block: 100px;
+.picture.right::before {
+  background-color: #beb45a;
+  position: absolute;
+  right: 0;
 }
 
-#contact .container {
-  display: flex;
-}
-.picture.right::before {
-  content: " ";
-  background-color: #beb45a;
-  width: 374px;
-  height: 329px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}
-.form-container {
-  flex: 2;
-}
+/* Styles pour les formulaires */
 form {
-  display: flex;
-  flex-direction: column;
   width: 70%;
   align-items: flex-start;
 }
 
 form input {
-  width: 100%;
-  background-color: transparent;
-  border: solid 1px;
   height: 2.5em;
-  margin-bottom: 20px;
 }
 
 form textarea {
-  width: 100%;
-  background-color: transparent;
-  border: solid 1px;
   height: 5em;
-  line-height: 2.5em;
-  font-size: 1.2em;
-  margin-bottom: 20px;
+  min-height: 100px;
 }
+
 input[type="submit"] {
   background-color: #beb45a;
   padding: 0.5em 1em;
 }
 
-.spectral-font {
-  font-family: "Spectral";
-  font-style: italic;
+/* Styles pour les éléments du carousel */
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
+<<<<<<< HEAD
 .carousel-item img {
   content-visibility: auto;
   contain: paint;
@@ -317,52 +469,107 @@ input[type="submit"] {
   aspect-ratio: 1920/888;
 }
 
+=======
+/* Styles pour les sections "contact" et "services" */
+#contact,
+#services {
+  content-visibility: auto; /* Ajout de la visibilité du contenu pour améliorer les performances */
+  contain-intrinsic-size: 1px 500px; /* Ajout de la taille intrinsèque pour améliorer les performances */
+}
+
+/* Styles pour les images du formulaire */
+#form-photo img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* Styles pour le conteneur du formulaire */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px; /* Ajout de l'espacement entre les éléments du formulaire */
+}
+
+/* Styles pour les écrans de taille moyenne */
+>>>>>>> fix-bug-gallery
 @media all and (max-width: 1180px) {
   .picture {
     flex: 2;
   }
+
   #about,
   #contact .container {
     align-items: center;
   }
+
   .about-me__title {
     margin-top: 0;
     margin-bottom: 1em;
   }
+
   #about-me p {
     width: 100%;
   }
+
+  #contact .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    max-width: 90%;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+  }
 }
 
-@media all and (max-width: 1000px) {
-  #about {
+/* Styles pour les écrans de petite taille */
+@media all and (max-width: 800px) {
+  .picture.left::before,
+  .picture.right::before {
+    height: 30%;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+  }
+
+  #about,
+  #contact .contact-container,
+  #services .container {
     flex-direction: column;
   }
+
   .picture {
     width: 50%;
   }
-  .picture.left::before {
+
+  .service,
+  form {
     width: 100%;
-    height: 30%;
-    position: absolute;
+  }
+
+  .picture.left::before {
     bottom: auto;
     top: 0;
     left: 0;
-    z-index: -1;
   }
+
   .about-me__title {
     text-align: center;
     margin-top: 1em;
   }
-  #services .container {
-    flex-direction: column;
-  }
+
   .service {
-    width: 100%;
     max-width: 100%;
     height: auto;
     margin: 2em 0;
   }
+
   .service__description {
     margin-bottom: 1em;
   }
@@ -376,56 +583,118 @@ input[type="submit"] {
     z-index: 0;
   }
 
-  #contact .container {
-    flex-direction: column;
-  }
   #contact .picture.right {
     margin-top: 1em;
+    width: 50%;
   }
-  .picture.right::before {
+
+  .form-container {
     width: 100%;
-    height: 30%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
+    max-width: 600px;
   }
 }
 
-@media all and (max-width: 650px) {
+/* Styles pour les écrans très petits */
+@media all and (max-width: 400px) {
   .top-header {
     flex-direction: column;
     padding-inline: 0;
   }
+
   .top-header .nav,
   .top-header .nav ul {
     width: 100%;
-    padding: 0 0 0 0;
+    padding: 0;
   }
+
   .top-header .nav li {
     flex: 1;
     padding-block: 1em;
     text-align: center;
   }
+
   .picture.left::before,
   .picture.right::before {
     height: 150px;
   }
+
   #services .container {
     align-items: center;
   }
+
   .service {
     max-width: 90%;
   }
+
   #about,
   #contact {
     padding-inline: 2em;
     padding-block: 2em;
   }
-  form {
-    width: 100%;
-  }
+
+  #contact .picture.right,
   .picture {
     width: 80%;
   }
+
+  form {
+    width: 100%;
+  }
+}
+
+/* Restaurer les styles de texte originaux */
+
+/* Style pour l'introduction */
+.about-me__introduction {
+  font-family: "Spectral";
+  font-weight: 800;
+  font-style: italic;
+  width: 60%;
+}
+
+/* Style pour les paragraphes dans about-me */
+#about-me p {
+  width: 80%;
+  font-size: 14px;
+}
+
+/* Style pour les citations */
+.quote {
+  font-family: "Spectral";
+  font-style: italic;
+  width: 70%;
+  margin: auto;
+  padding-block: 3em;
+}
+
+.quote__text {
+  font-family: Spectral;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.quote__author {
+  font-family: Spectral;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* Style pour la navigation */
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* Style pour le titre dans l'en-tête */
+.top-header .name {
+  font-size: 26px;
+}
+
+/* Style pour les titres de services */
+.about-me__title {
+  margin-top: 1em;
+  margin-bottom: 60px;
+  font-size: 30px;
 }

@@ -177,11 +177,7 @@ body {
 .picture img {
   width: 100%;
   height: auto;
-<<<<<<< HEAD
-  aspect-ratio: 1/1;
-=======
   max-width: 100%;
->>>>>>> fix-bug-gallery
   object-fit: cover;
 }
 

@@ -460,16 +460,6 @@ input[type="submit"] {
   object-fit: cover;
 }
 
-<<<<<<< HEAD
-.carousel-item img {
-  content-visibility: auto;
-  contain: paint;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1920/888;
-}
-
-=======
 /* Styles pour les sections "contact" et "services" */
 #contact,
 #services {
@@ -493,7 +483,6 @@ input[type="submit"] {
 }
 
 /* Styles pour les écrans de taille moyenne */
->>>>>>> fix-bug-gallery
 @media all and (max-width: 1180px) {
   .picture {
     flex: 2;

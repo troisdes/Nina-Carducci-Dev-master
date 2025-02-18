@@ -85,52 +85,41 @@
           a(`#${e}`).modal("toggle");
       },
       prevImage(t) {
-        let e = null;
-        a("img.gallery-item").each(function () {
-          a(this).attr("src") ===
-            a(`#${t}`).find(".lightboxImage").attr("src") && (e = a(this));
+        const currentImg = a(`#${t}`).find(".lightboxImage");
+        const currentSrc = currentImg.attr("src");
+        const images = a(".gallery-item").toArray();
+        const activeTag = a(".tags-bar span.active-tag").data("images-toggle");
+
+        const filteredImages = images.filter((img) => {
+          const imgEl = a(img);
+          return activeTag === "all" || imgEl.data("gallery-tag") === activeTag;
         });
-        let l = a(".tags-bar span.active-tag").data("images-toggle"),
-          i = [];
-        "all" === l
-          ? a(".item-column").each(function () {
-              a(this).children("img").length && i.push(a(this).children("img"));
-            })
-          : a(".item-column").each(function () {
-              a(this).children("img").data("gallery-tag") === l &&
-                i.push(a(this).children("img"));
-            });
-        let s = 0,
-          n = null;
-        a(i).each(function (t) {
-          a(e).attr("src") === a(this).attr("src") && (s = t);
-        }),
-          (n = i[s - 1] || i[i.length - 1]),
-          a(`#${t}`).find(".lightboxImage").attr("src", a(n).attr("src"));
+
+        const currentIndex = filteredImages.findIndex(
+          (img) => a(img).attr("src") === currentSrc
+        );
+        const prevIndex =
+          currentIndex <= 0 ? filteredImages.length - 1 : currentIndex - 1;
+
+        currentImg.attr("src", a(filteredImages[prevIndex]).attr("src"));
       },
       nextImage(t) {
-        let e = null;
-        a("img.gallery-item").each(function () {
-          a(this).attr("src") ===
-            a(`#${t}`).find(".lightboxImage").attr("src") && (e = a(this));
+        const currentImg = a(`#${t}`).find(".lightboxImage");
+        const currentSrc = currentImg.attr("src");
+        const images = a(".gallery-item").toArray();
+        const activeTag = a(".tags-bar span.active-tag").data("images-toggle");
+
+        const filteredImages = images.filter((img) => {
+          const imgEl = a(img);
+          return activeTag === "all" || imgEl.data("gallery-tag") === activeTag;
         });
-        let l = a(".tags-bar span.active-tag").data("images-toggle"),
-          i = [];
-        "all" === l
-          ? a(".item-column").each(function () {
-              a(this).children("img").length && i.push(a(this).children("img"));
-            })
-          : a(".item-column").each(function () {
-              a(this).children("img").data("gallery-tag") === l &&
-                i.push(a(this).children("img"));
-            });
-        let s = 0,
-          n = null;
-        a(i).each(function (t) {
-          a(e).attr("src") === a(this).attr("src") && (s = t);
-        }),
-          (n = i[s + 1] || i[0]),
-          a(`#${t}`).find(".lightboxImage").attr("src", a(n).attr("src"));
+
+        const currentIndex = filteredImages.findIndex(
+          (img) => a(img).attr("src") === currentSrc
+        );
+        const nextIndex = (currentIndex + 1) % filteredImages.length;
+
+        currentImg.attr("src", a(filteredImages[nextIndex]).attr("src"));
       },
       createLightBox(a, t, e) {
         a.append(`<div class="modal fade" id="${
@@ -171,15 +160,19 @@
       },
       filterByTag() {
         if (!a(this).hasClass("active-tag")) {
-          a(".active-tag").removeClass("active active-tag"),
-            a(this).addClass("active-tag");
+          // Supprimer les classes active et active-tag de l'ancien filtre
+          a(".active-tag").removeClass("active active-tag");
+          // Ajouter les deux classes au nouveau filtre
+          a(this).addClass("active active-tag");
+
           var t = a(this).data("images-toggle");
           a(".gallery-item").each(function () {
-            a(this).parents(".item-column").hide(),
-              "all" === t
-                ? a(this).parents(".item-column").show(300)
-                : a(this).data("gallery-tag") === t &&
-                  a(this).parents(".item-column").show(300);
+            a(this).parents(".item-column").hide();
+            if (t === "all") {
+              a(this).parents(".item-column").show(300);
+            } else if (a(this).data("gallery-tag") === t) {
+              a(this).parents(".item-column").show(300);
+            }
           });
         }
       },

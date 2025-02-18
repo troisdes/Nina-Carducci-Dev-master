@@ -36,6 +36,7 @@
 	<link rel="stylesheet" href="./assets/css/style.min.css">
 	<link rel="preload" href="./assets/images/desktop/slider/ryoji-iwata-wUZjnOv7t0g-unsplash_1920x888.webp" as="image"
 		type="image/webp">
+	<link rel="manifest" href="/manifest.json">
 	<script type="application/ld+json">
 	{
 	  "@context": "https://schema.org",
@@ -312,6 +313,22 @@
 			</div>
 		</section>
 	</main>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () =>
+			{
+				navigator.serviceWorker.register('./sw.js')
+					.then(registration =>
+					{
+						console.log('ServiceWorker registration successful with scope:', registration.scope);
+					})
+					.catch(error =>
+					{
+						console.error('ServiceWorker registration failed:', error);
+					});
+			});
+		}
+	</script>
 </body>
 
 </html>

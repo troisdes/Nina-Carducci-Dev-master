@@ -143,8 +143,15 @@ body {
 }
 
 /* Styles pour les liens sociaux */
+.social-link {
+  display: inline-block;
+  line-height: 0; /* Removes extra space below the image */
+  font-size: 0; /* Removes any potential whitespace */
+}
+
 .social-link img {
   width: 20px;
+  display: block; /* Prevents inline image spacing */
 }
 
 /* Styles pour la section "about" */

@@ -1,43 +1,35 @@
-/* Styles pour les éléments de formulaire */
 form input,
 form textarea {
-  margin-bottom: var(
-    --form-element-spacing
-  ); /* Ajout de l'espacement entre les éléments de formulaire */
+  margin-bottom: var(--form-element-spacing);
 }
 
-/* Définition des polices */
 @font-face {
   font-family: Spectral;
-  font-display: swap; /* Ajout de la propriété font-display pour améliorer les performances */
+  font-display: swap;
 }
 
 @font-face {
   font-family: Inter;
-  font-display: swap; /* Ajout de la propriété font-display pour améliorer les performances */
+  font-display: swap;
 }
 
-/* Styles pour les éléments de la galerie et les images */
 .gallery-item,
 .picture img {
-  aspect-ratio: 1/1; /* Ajout de l'aspect ratio pour les images */
-  object-fit: cover; /* Ajout de l'ajustement des images pour couvrir l'espace */
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 
-/* Styles pour les sections "about" et "contact" */
 #about,
 #contact {
   padding-inline: 100px;
   padding-block: 100px;
 }
 
-/* Styles pour les services et l'en-tête */
 .service,
 .top-header {
-  background-color: #fff; /* Utilisation de la variable de couleur de fond */
+  background-color: #fff;
 }
 
-/* Styles pour les éléments avec des images à gauche et à droite */
 .picture.left::before,
 .picture.right::before {
   content: " ";
@@ -47,7 +39,6 @@ form textarea {
   z-index: -1;
 }
 
-/* Styles pour les citations et les textes spéciaux */
 .quote,
 .quote__text,
 .spectral-font,
@@ -56,7 +47,6 @@ form textarea {
   font-style: italic;
 }
 
-/* Variables CSS */
 :root {
   --mobile: 650px;
   --tablet: 1000px;
@@ -77,24 +67,20 @@ form textarea {
   --primary-bg: #beb45a;
 }
 
-/* Styles pour le corps de la page */
 body {
   max-width: 1920px;
   margin: auto;
 }
 
-/* Styles généraux */
 * {
   font-family: Inter;
   font-style: normal;
 }
 
-/* Classe pour cacher les éléments */
 .hidden {
-  visibility: hidden; /* Ajout de la classe pour cacher les éléments */
+  visibility: hidden;
 }
 
-/* Styles pour l'en-tête */
 .top-header {
   position: sticky;
   top: 0;
@@ -106,7 +92,6 @@ body {
   align-items: center;
 }
 
-/* Styles pour les sections avec position relative */
 #about,
 #contact,
 #services,
@@ -114,18 +99,15 @@ body {
   position: relative;
 }
 
-/* Styles pour les boutons de navigation de la galerie */
 .mg-next,
 .mg-prev {
-  background: #fff; /* Ajout de la couleur de fond pour les boutons de navigation */
+  background: #fff;
 }
 
-/* Styles pour le nom dans l'en-tête */
 .top-header .name {
   font-size: 26px;
 }
 
-/* Styles pour la navigation */
 .nav ul {
   display: flex;
   list-style-type: none;
@@ -142,19 +124,17 @@ body {
   color: #000;
 }
 
-/* Styles pour les liens sociaux */
 .social-link {
   display: inline-block;
-  line-height: 0; /* Removes extra space below the image */
-  font-size: 0; /* Removes any potential whitespace */
+  line-height: 0;
+  font-size: 0;
 }
 
 .social-link img {
   width: 20px;
-  display: block; /* Prevents inline image spacing */
+  display: block;
 }
 
-/* Styles pour la section "about" */
 #about {
   display: flex;
   background-color: #f6d2b8;
@@ -166,7 +146,6 @@ body {
   left: 0;
 }
 
-/* Styles pour les images */
 .picture {
   flex: 1;
   margin: 0 20px;
@@ -188,7 +167,6 @@ body {
   object-fit: cover;
 }
 
-/* Styles pour la section "about-me" et le formulaire */
 #about-me,
 .form-container {
   flex: 2;
@@ -200,7 +178,6 @@ body {
   font-size: 30px;
 }
 
-/* Styles pour les blocs de texte spéciaux */
 .text-block--special {
   font-weight: 800;
   width: var(--text-width-narrow);
@@ -212,18 +189,15 @@ body {
   width: var(--text-width-wide);
 }
 
-/* Styles pour les titres */
 .title {
   text-align: center;
   padding-block: 2em;
 }
 
-/* Styles pour la galerie */
 .gallery .nav {
   justify-content: center;
 }
 
-/* Styles pour les modales */
 .modal-content,
 .modal-dialog {
   justify-content: center;
@@ -253,7 +227,6 @@ body {
   border-radius: 0;
 }
 
-/* Styles pour les colonnes d'éléments */
 .item-column {
   margin-bottom: 0 !important;
   padding: 0;
@@ -265,17 +238,14 @@ body {
   padding-bottom: 100%;
 }
 
-/* Styles pour les éléments de la galerie */
 .gallery-item {
   position: absolute;
   width: 100%;
   height: 100%;
   min-height: 200px;
   padding: 0.5em;
-  aspect-ratio: 1/1;
 }
 
-/* Styles pour les modales */
 .modal-dialog {
   align-items: center;
   height: 100vh;
@@ -306,10 +276,9 @@ body {
   padding: 0;
 }
 
-/* Styles pour les boutons de navigation de la galerie */
 .mg-next,
 .mg-prev {
-  border-radius: 25%; /* Modification du rayon de bordure pour les boutons de navigation */
+  border-radius: 25%;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -332,7 +301,6 @@ body {
   right: 5%;
 }
 
-/* Styles pour les éléments de formulaire */
 form input,
 form textarea {
   width: 100%;
@@ -350,12 +318,10 @@ form textarea {
   margin-bottom: 20px;
 }
 
-/* Styles pour les éléments cachés de la galerie */
 .gallery-nav-span {
   display: none;
 }
 
-/* Styles pour la section "contact" */
 #contact .contact-container,
 #contact .container,
 .service {
@@ -367,7 +333,6 @@ form textarea {
   background-color: #d8d3a8;
 }
 
-/* Styles pour les citations */
 .quote {
   font-family: "Spectral";
   font-style: italic;
@@ -380,7 +345,7 @@ form textarea {
   font-family: Spectral;
   font-style: italic;
   font-weight: 300;
-  font-size: 2.5em; /* mimic the size of the old h1 */
+  font-size: 2.5em;
   line-height: 1.2;
   margin: 0.5em 0;
 }
@@ -391,7 +356,6 @@ form textarea {
   font-size: 22px;
 }
 
-/* Styles pour la section "services" */
 #services {
   margin: auto;
   background-color: #a8d5d8;
@@ -414,7 +378,6 @@ form textarea {
   padding: 2em 0;
 }
 
-/* Styles pour les services et les formulaires */
 .service,
 form {
   flex-direction: column;
@@ -436,7 +399,6 @@ form {
   right: 0;
 }
 
-/* Styles pour les formulaires */
 form {
   width: 70%;
   align-items: flex-start;
@@ -456,35 +418,30 @@ input[type="submit"] {
   padding: 0.5em 1em;
 }
 
-/* Styles pour les éléments du carousel */
 .carousel-item img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Styles pour les sections "contact" et "services" */
 #contact,
 #services {
-  content-visibility: auto; /* Ajout de la visibilité du contenu pour améliorer les performances */
-  contain-intrinsic-size: 1px 500px; /* Ajout de la taille intrinsèque pour améliorer les performances */
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
 }
 
-/* Styles pour les images du formulaire */
 #form-photo img {
   width: 100%;
   height: 100%;
   max-width: none;
 }
 
-/* Styles pour le conteneur du formulaire */
 .form-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* Styles pour les écrans de taille moyenne */
 @media all and (max-width: 1180px) {
   .picture {
     flex: 2;
@@ -519,7 +476,6 @@ input[type="submit"] {
   }
 }
 
-/* Styles pour les écrans de petite taille */
 @media all and (max-width: 800px) {
   .picture.left::before,
   .picture.right::before {
@@ -585,7 +541,6 @@ input[type="submit"] {
   }
 }
 
-/* Styles pour les écrans très petits */
 @media all and (max-width: 400px) {
   .top-header {
     flex-direction: column;
@@ -633,9 +588,6 @@ input[type="submit"] {
   }
 }
 
-/* Restaurer les styles de texte originaux */
-
-/* Style pour l'introduction */
 #about-me__introduction {
   display: block;
   font-size: 1rem;
@@ -646,13 +598,11 @@ input[type="submit"] {
   line-height: 1.2;
 }
 
-/* Style pour les paragraphes dans about-me */
 #about-me p {
   width: 80%;
   font-size: 14px;
 }
 
-/* Style pour les citations */
 .quote {
   font-family: "Spectral";
   font-style: italic;
@@ -673,7 +623,6 @@ input[type="submit"] {
   font-size: 22px;
 }
 
-/* Style pour la navigation */
 .nav ul {
   display: flex;
   list-style-type: none;
@@ -681,12 +630,10 @@ input[type="submit"] {
   margin-bottom: 0;
 }
 
-/* Style pour le titre dans l'en-tête */
 .top-header .name {
   font-size: 26px;
 }
 
-/* Style pour les titres de services */
 .about-me__title {
   margin-top: 1em;
   margin-bottom: 60px;
